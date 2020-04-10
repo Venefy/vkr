@@ -10,18 +10,32 @@
 
 
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="5">
-            <StackPanel HorizontalAlignment="Center">
-                <Border BorderBrush="Black" BorderThickness="0,0,0,5" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Width="890">
-                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBox Height="30" Name="txtFilePath" Width="550" Margin="10,0,10,0" FontSize="15" Opacity="1" />
-                        <Button Content="Browse Excel" Name="btnOpen" Width="120" FontSize="15" Height="30" FontWeight="Bold" Click="OpenExcel" />
-                        <Button Content="Close" FontSize="15" Height="30" FontWeight="Bold" Name="btnClose" Width="75" Margin="110,0,0,0" Background="#FFEFE5E5" Click="btnClose_Click" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="830*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+
+            <Border BorderBrush="LightGray" BorderThickness="5">
+                <StackPanel HorizontalAlignment="Center">
+                    <Label x:Name="txt1" Content="Введите..." FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" />
+                    <Border BorderBrush="LightGray" BorderThickness="0,0,0,5" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center" Width="769">
+                        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBox Height="30" Name="txtFilePath" Width="504" Margin="10,0,10,0" FontSize="15" Opacity="1" />
+                            <Button Content="Выбрать таблицу" Name="btnOpen" Width="148" FontSize="15" Height="30" FontWeight="Bold" Click="OpenExcel" />
+                            <Button Content="Сброс" FontSize="15" Height="30" FontWeight="Bold" x:Name="btnClose" Width="64" Margin="30,0,0,0" Click="btnClose_Click" />
+
+                        </WrapPanel>
+                    </Border>
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="766" Height="89">
+                        <Label x:Name="txtIns" Content="&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;        Загруженные данные:" FontSize="15" FontWeight="Bold" Margin="15, 10, 0, 0" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" Width="517" />
+                        <Button Content="Проверить данные &#xA;                 и&#xA;      продолжить" x:Name="btnCheck" Margin="15, 10, 0, 0"  HorizontalAlignment="Right"  Width="175" FontSize="15" Height="72" FontWeight="Bold" Click="Check" />
                     </WrapPanel>
-                </Border>
-                <Label Name="txtIns" Content="View Uploaded records to DataGridView" FontSize="15" FontWeight="Bold" Margin="15" HorizontalAlignment="Center" />
-                <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" Name="dtGrid" VerticalAlignment="Center" />
-            </StackPanel>
-        </Border>
+                    <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" x:Name="dtGrid" VerticalAlignment="Center" />
+                </StackPanel>
+               
+            </Border>
+        </ScrollViewer>
     </Grid>
 </Page>

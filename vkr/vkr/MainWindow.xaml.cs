@@ -27,10 +27,5 @@ namespace vkr
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _mw.Navigate(new Page1());
-
-        }
     }
 }

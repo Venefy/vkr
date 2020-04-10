@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vkr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="713.934">
     
-    <Grid>
-        <Frame x:Name="_mw" />
-    </Grid>
-   
+    <Grid Margin="0,0,-8,0"/>
+
 </Window>

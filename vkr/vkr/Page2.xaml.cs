@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.Data;
+using System.Data.OleDb;
 
 namespace vkr
 {
@@ -24,5 +27,41 @@ namespace vkr
         {
             InitializeComponent();
         }
+        private void OpenExcel(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openfile = new OpenFileDialog();
+            //openfile.DefaultExt = ".xlsx";
+            //openfile.Filter = "(.xlsx)|*.xlsx";
+            //openfile.ShowDialog();
+
+            var browsefile = openfile.ShowDialog();
+
+            if (browsefile == true)
+            {
+                var con = new SmartConnection();
+                using (var cn = new OleDbConnection(con.ConnectionString(openfile.FileName, 1)))
+                {
+                    cn.Open();
+
+                    OleDbDataAdapter objDA = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
+                    DataSet excelDataSet = new DataSet();
+                    objDA.Fill(excelDataSet);
+                    //dtGrid.DataSet= excelDataSet.Tables[0];
+                    dtGrid.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet.Tables[0] });
+                }
+
+            }
+
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            dtGrid.ClearValue(ItemsControl.ItemsSourceProperty);
+        }
+        private void Check(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Page3());
+        }
     }
+
+
 }
