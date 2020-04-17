@@ -8,31 +8,62 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page2">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="830*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer>
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        </Page.Resources>
 
-            <Border BorderBrush="LightGray" BorderThickness="5">
-                <StackPanel HorizontalAlignment="Center">
-                    <Label x:Name="txt1" Content="Введите..." FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" />
-                    <Border BorderBrush="LightGray" BorderThickness="0,0,0,5" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center" Width="769">
-                        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+     <Grid>
 
-                            <TextBox Height="30" Name="txtFilePath" Width="504" Margin="10,0,10,0" FontSize="15" Opacity="1" />
-                            <Button Content="Выбрать таблицу" Name="btnOpen" Width="148" FontSize="15" Height="30" FontWeight="Bold" Click="OpenExcel" />
-                            <Button Content="Сброс" FontSize="15" Height="30" FontWeight="Bold" x:Name="btnClose" Width="64" Margin="30,0,0,0" Click="btnClose_Click" />
+        <StackPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Допуск на фотозону" Width="461" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Dop" Height="23" TextWrapping="Wrap"  RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Dop_TextChanged">0.02</TextBox>
 
-                        </WrapPanel>
-                    </Border>
-                    <Label x:Name="txtIns" Content="Загруженные данные" FontSize="15" FontWeight="Bold" Margin="15" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" />
-                    <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" x:Name="dtGrid" VerticalAlignment="Center" />
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Толщина защитного стекла" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="S1" Height="23" TextWrapping="Wrap" Text="2" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="S1_TextChanged"/>
+                <TextBlock  Text="если измерения проводятся без крышки с защитным стеклом, то значение должно быть 0." TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="769"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Толщина светофильтра" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="S2" Height="23" TextWrapping="Wrap" Text="0" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="S2_TextChanged"/>
+                <TextBlock  TextWrapping="Wrap" Text="для ПХ блоков значение должно быть 0. " TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="773"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Поправка на толщину стекла (n-1)/n" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Ks1" Height="23" TextWrapping="Wrap" Text="0.337" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Ks1_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Поправка на толщину светофильтра (n-1)/n" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Ks2" Height="23" TextWrapping="Wrap" Text="0.337" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Ks2_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="От установочной до фотоприёмной по ГЧ" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Lopt" Height="23" TextWrapping="Wrap" Text="8.22" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lopt_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Расстояние от оси блока до первого репера нечётной матрицы вдоль OY по КД" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="MY3" Height="23" TextWrapping="Wrap" Text="0.457" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="MY3_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Расстояние от оси блока до первого репера чётной матрицы вдоль OY по КД" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="MY4" Height="23" TextWrapping="Wrap" Text="0.375" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="MY4_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Ширина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Spl" Height="23" TextWrapping="Wrap" Text="20" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Spl_TextChanged"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <TextBlock  TextWrapping="Wrap" Text="Длина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                <TextBox Name="Lpl" Height="23" TextWrapping="Wrap" Text="80" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lpl_TextChanged"/>
+            </WrapPanel>
 
-                </StackPanel>
-            </Border>
-        </ScrollViewer>
-        <Button Content="Далее" HorizontalAlignment="Left" FontWeight="Bold" Margin="656,112,0,0" VerticalAlignment="Top" Width="84" Height="31" Click="Check"/>
+
+        </StackPanel>
+
     </Grid>
 </Page>

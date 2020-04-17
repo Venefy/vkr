@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace vkr
 {
     /// <summary>
-    /// Interaction logic for Page4.xaml
+    /// Interaction logic for Page3.xaml
     /// </summary>
-    public partial class Page4 : Page
+    public partial class Page3 : Page
     {
-        public Page4()
+        public Page3()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //this.NavigationService.Navigate(new Page4());
         }
     }
 }

@@ -32,7 +32,11 @@
                         <Label x:Name="txtIns" Content="&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;        Загруженные данные:" FontSize="15" FontWeight="Bold" Margin="15, 10, 0, 0" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" Width="517" />
                         <Button Content="Проверить данные &#xA;                 и&#xA;      продолжить" x:Name="btnCheck" Margin="15, 10, 0, 0"  HorizontalAlignment="Right"  Width="175" FontSize="15" Height="72" FontWeight="Bold" Click="Check" />
                     </WrapPanel>
-                    <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" x:Name="dtGrid" VerticalAlignment="Center" />
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                        <DataGrid AutoGenerateColumns="True" IsReadOnly="True"  x:Name="dtGrid1"  />
+                        <DataGrid AutoGenerateColumns="True" IsReadOnly="True"  x:Name="dtGrid2"  />
+                        <DataGrid AutoGenerateColumns="True" IsReadOnly="True"  x:Name="dtGrid3"  />
+                    </WrapPanel>
                 </StackPanel>
                
             </Border>

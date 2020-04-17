@@ -12,9 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Win32;
-using System.Data;
-using System.Data.OleDb;
 
 namespace vkr
 {
@@ -27,41 +24,96 @@ namespace vkr
         {
             InitializeComponent();
         }
-        private void OpenExcel(object sender, RoutedEventArgs e)
+    
+
+        private void Dop_TextChanged(object sender, TextChangedEventArgs e)
         {
-            OpenFileDialog openfile = new OpenFileDialog();
-            //openfile.DefaultExt = ".xlsx";
-            //openfile.Filter = "(.xlsx)|*.xlsx";
-            //openfile.ShowDialog();
-
-            var browsefile = openfile.ShowDialog();
-
-            if (browsefile == true)
+            if (this.IsLoaded)
             {
-                var con = new SmartConnection();
-                using (var cn = new OleDbConnection(con.ConnectionString(openfile.FileName, 1)))
-                {
-                    cn.Open();
-
-                    OleDbDataAdapter objDA = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
-                    DataSet excelDataSet = new DataSet();
-                    objDA.Fill(excelDataSet);
-                    //dtGrid.DataSet= excelDataSet.Tables[0];
-                    dtGrid.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet.Tables[0] });
-                }
-
+                Dop.Foreground = Brushes.Black;
+                Dop.FontWeight = FontWeights.Bold;
             }
+        }
 
-        }
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void S1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            dtGrid.ClearValue(ItemsControl.ItemsSourceProperty);
+            if (this.IsLoaded)
+            {
+                S1.Foreground = Brushes.Black;
+                S1.FontWeight = FontWeights.Bold;
+            }
         }
-        private void Check(object sender, RoutedEventArgs e)
+
+        private void S2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.NavigationService.Navigate(new Page3());
+            if (this.IsLoaded)
+            {
+                S2.Foreground = Brushes.Black;
+                S2.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void Ks1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Ks1.Foreground = Brushes.Black;
+                Ks1.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void Ks2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Ks2.Foreground = Brushes.Black;
+                Ks2.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void Lopt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Lopt.Foreground = Brushes.Black;
+                Lopt.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void MY3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                MY3.Foreground = Brushes.Black;
+                MY3.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void MY4_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                MY4.Foreground = Brushes.Black;
+                MY4.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void Spl_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Spl.Foreground = Brushes.Black;
+                Spl.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void Lpl_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Lpl.Foreground = Brushes.Black;
+                Lpl.FontWeight = FontWeights.Bold;
+            }
         }
     }
-
-
 }

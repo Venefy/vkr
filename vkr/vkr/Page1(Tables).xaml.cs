@@ -46,11 +46,21 @@ namespace vkr
                     {
                         cn.Open();
                         
-                        OleDbDataAdapter objDA = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
-                         DataSet excelDataSet = new DataSet();
-                         objDA.Fill(excelDataSet);
+                        OleDbDataAdapter objDA1 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
+                         DataSet excelDataSet1 = new DataSet();
+                         objDA1.Fill(excelDataSet1);
                          //dtGrid.DataSet= excelDataSet.Tables[0];
-                         dtGrid.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet.Tables[0] });
+                         dtGrid1.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet1.Tables[0] });
+                         OleDbDataAdapter objDA2 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист2$]", cn);
+                        DataSet excelDataSet2 = new DataSet();
+                        objDA2.Fill(excelDataSet2);
+                        //dtGrid.DataSet= excelDataSet.Tables[0];
+                        dtGrid2.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet2.Tables[0] });
+                         OleDbDataAdapter objDA3 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист3$]", cn);
+                        DataSet excelDataSet3 = new DataSet();
+                        objDA3.Fill(excelDataSet3);
+                        //dtGrid.DataSet= excelDataSet.Tables[0];
+                        dtGrid3.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet3.Tables[0] });
                 }
 
                 }
@@ -58,7 +68,9 @@ namespace vkr
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            dtGrid.ClearValue(ItemsControl.ItemsSourceProperty);
+            dtGrid1.ClearValue(ItemsControl.ItemsSourceProperty);
+            dtGrid2.ClearValue(ItemsControl.ItemsSourceProperty);
+            dtGrid3.ClearValue(ItemsControl.ItemsSourceProperty);
         }
 
         private void Check(object sender, RoutedEventArgs e)
