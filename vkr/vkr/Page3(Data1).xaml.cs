@@ -20,9 +20,12 @@ namespace vkr
     /// </summary>
     public partial class Page3 : Page
     {
-        public Page3()
+        public Data d3 = new Data();
+        public Page3( Data data)
         {
             InitializeComponent();
+            d3 = data;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

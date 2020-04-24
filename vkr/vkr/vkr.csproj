@@ -72,24 +72,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Data.cs" />
     <Page Include="Page1%28Tables%29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page2.xaml">
+    <Page Include="Page2%28Data%29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,8 +95,8 @@
     <Compile Include="Page1%28Tables%29.xaml.cs">
       <DependentUpon>Page1%28Tables%29.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
+    <Compile Include="Page2%28Data%29.xaml.cs">
+      <DependentUpon>Page2%28Data%29.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page3%28Data1%29.xaml.cs">
       <DependentUpon>Page3%28Data1%29.xaml</DependentUpon>

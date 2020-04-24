@@ -5,32 +5,35 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:vkr"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+    
+      d:DesignHeight="600" d:DesignWidth="800"
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
       Title="Page1">
+    <!--MinWidth="600" MaxWidth="1000"
+     MinHeight="500" MaxHeight="700"-->
 
-
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="830*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <ScrollViewer>
 
-            <Border BorderBrush="LightGray" BorderThickness="5">
-                <StackPanel HorizontalAlignment="Center">
-                    <Label x:Name="txt1" Content="Введите..." FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" />
+            <Border BorderBrush="LightGray" BorderThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel HorizontalAlignment="Stretch">
+                    <Label x:Name="txt1" Content="Введите..." FontSize="15"  HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" />
                     <Border BorderBrush="LightGray" BorderThickness="0,0,0,5" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center" Width="769">
                         <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
 
                             <TextBox Height="30" Name="txtFilePath" Width="504" Margin="10,0,10,0" FontSize="15" Opacity="1" />
-                            <Button Content="Выбрать таблицу" Name="btnOpen" Width="148" FontSize="15" Height="30" FontWeight="Bold" Click="OpenExcel" />
-                            <Button Content="Сброс" FontSize="15" Height="30" FontWeight="Bold" x:Name="btnClose" Width="64" Margin="30,0,0,0" Click="btnClose_Click" />
+                            <Button Content="Выбрать таблицу" Name="btnOpen" Width="148" FontSize="15" Height="30"  Click="OpenExcel" />
+                            <Button Content="Сброс" FontSize="15" Height="30"  x:Name="btnClose" Width="64" Margin="30,0,0,0" Click="btnClose_Click" />
 
                         </WrapPanel>
                     </Border>
-                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="766" Height="89">
-                        <Label x:Name="txtIns" Content="&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;        Загруженные данные:" FontSize="15" FontWeight="Bold" Margin="15, 10, 0, 0" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" Width="517" />
-                        <Button Content="Проверить данные &#xA;                 и&#xA;      продолжить" x:Name="btnCheck" Margin="15, 10, 0, 0"  HorizontalAlignment="Right"  Width="175" FontSize="15" Height="72" FontWeight="Bold" Click="Check" />
+                    <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="766" Height="89">
+                        <Label x:Name="txtIns" Content="&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;        Загруженные данные:" FontSize="15"  Margin="15, 10, 0, 0" HorizontalAlignment="Center" RenderTransformOrigin="0.468,-0.117" Width="517" />
+                        <Button Content="Проверить данные &#xA;                 и&#xA;      продолжить" x:Name="btnCheck" Margin="15, 10, 0, 0"  HorizontalAlignment="Right"  Width="175" FontSize="15" Height="72"  Click="Check" />
                     </WrapPanel>
                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Stretch">
                         <DataGrid AutoGenerateColumns="True" IsReadOnly="True"  x:Name="dtGrid1"  />

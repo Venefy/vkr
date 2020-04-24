@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:vkr"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
+      HorizontalAlignment="Stretch" VerticalAlignment="Center"
       Title="Page2">
 
     <Page.Resources>
@@ -13,57 +14,90 @@
             <Setter Property="Foreground" Value="DarkBlue"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
-        </Page.Resources>
+        <Style TargetType="WrapPanel">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    <!--HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780"-->
+    
+    
+    <Grid>
+      <ScrollViewer>
 
-     <Grid>
-
-        <StackPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
-                <TextBlock  TextWrapping="Wrap" Text="Допуск на фотозону" Width="461" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock  TextWrapping="Wrap" Text="Допуск на фотозону" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Dop" Height="23" TextWrapping="Wrap"  RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Dop_TextChanged">0.02</TextBox>
 
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+                <WrapPanel>
+                    <TextBlock  TextWrapping="Wrap" Text="Координаты круглого отверстия" Width="440" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBlock  TextWrapping="Wrap" Text="X:" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBox Name="Xaa" Height="23" TextWrapping="Wrap" Text="0" RenderTransformOrigin="0.5,0.5" Width="140" Background="lightBlue" VerticalAlignment="Center"/>
+                    <TextBlock  TextWrapping="Wrap" Text="Y:" TextAlignment="Right" VerticalAlignment="Center"  Margin="10,0,10,0"/>
+                    <TextBox Name="Yaa" Height="23" TextWrapping="Wrap"  RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Dop_TextChanged">-0.4176</TextBox>
+
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock  TextWrapping="Wrap" Text="Координаты овального отверстия" Width="440" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBlock  TextWrapping="Wrap" Text="X:" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBox Name="Xbb" Height="23" TextWrapping="Wrap" Text="0" RenderTransformOrigin="0.5,0.5" Width="140" Background="lightBlue" VerticalAlignment="Center"/>
+                    <TextBlock  TextWrapping="Wrap" Text="Y:" TextAlignment="Right" VerticalAlignment="Center"  Margin="10,0,10,0"/>
+                    <TextBox Name="Ybb" Height="23" TextWrapping="Wrap"  RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Dop_TextChanged">-0.4288</TextBox>
+
+                </WrapPanel>
+                <WrapPanel>
                 <TextBlock  TextWrapping="Wrap" Text="Толщина защитного стекла" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="S1" Height="23" TextWrapping="Wrap" Text="2" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="S1_TextChanged"/>
                 <TextBlock  Text="если измерения проводятся без крышки с защитным стеклом, то значение должно быть 0." TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="769"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Толщина светофильтра" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="S2" Height="23" TextWrapping="Wrap" Text="0" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="S2_TextChanged"/>
                 <TextBlock  TextWrapping="Wrap" Text="для ПХ блоков значение должно быть 0. " TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0" Width="773"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Поправка на толщину стекла (n-1)/n" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Ks1" Height="23" TextWrapping="Wrap" Text="0.337" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Ks1_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Поправка на толщину светофильтра (n-1)/n" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Ks2" Height="23" TextWrapping="Wrap" Text="0.337" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Ks2_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="От установочной до фотоприёмной по ГЧ" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Lopt" Height="23" TextWrapping="Wrap" Text="8.22" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lopt_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel>
+                <TextBlock  TextWrapping="Wrap" Text="Расстояние от оси блока до первого репера вдоль OY по результатам измерений" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBox Name="MY1" Height="23" TextWrapping="Wrap" Text="0.457" RenderTransformOrigin="0.5,0.5" Width="138" Background="lightBlue" VerticalAlignment="Center" />
+            </WrapPanel>
+            <WrapPanel >
+                <TextBlock  TextWrapping="Wrap" Text="Расстояние между двумя первыми реперами четных и нечетных матриц по результатам измерений" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBox Name="MY2" Height="23" TextWrapping="Wrap" Text="0.457" RenderTransformOrigin="0.5,0.5" Width="138" Background="lightBlue" VerticalAlignment="Center" />
+            </WrapPanel>
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Расстояние от оси блока до первого репера нечётной матрицы вдоль OY по КД" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="MY3" Height="23" TextWrapping="Wrap" Text="0.457" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="MY3_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Расстояние от оси блока до первого репера чётной матрицы вдоль OY по КД" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="MY4" Height="23" TextWrapping="Wrap" Text="0.375" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="MY4_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel>
                 <TextBlock  TextWrapping="Wrap" Text="Ширина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Spl" Height="23" TextWrapping="Wrap" Text="20" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Spl_TextChanged"/>
             </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,0" Width="780">
+            <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Длина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 <TextBox Name="Lpl" Height="23" TextWrapping="Wrap" Text="80" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lpl_TextChanged"/>
+                    
             </WrapPanel>
-
-
-        </StackPanel>
-
+                <WrapPanel HorizontalAlignment="Right">
+                    <Button Content="Проверить данные и продолжить" HorizontalAlignment="Right" Click="Button_Click" Height="36" />
+                </WrapPanel>
+            </StackPanel>
+       </ScrollViewer>
     </Grid>
 </Page>
