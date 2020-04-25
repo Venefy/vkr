@@ -1,12 +1,12 @@
-﻿<Page x:Class="vkr.Page3"
+﻿<Page x:Class="vkr.Page4"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:vkr"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
-      Title="Page3">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page4">
     <Page.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="DarkBlue"/>
@@ -17,7 +17,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </Page.Resources>
-   
+
 
 
     <Grid>
@@ -25,10 +25,12 @@
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <WrapPanel>
-                    <TextBlock  TextWrapping="Wrap" Text="Для МС блоков:" Width="460" FontWeight="Black" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
+                    <TextBlock  TextWrapping="Wrap" Text="Для ПХ блоков:" Width="460" FontWeight="Black" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
                 </WrapPanel>
                 
-                
+                <WrapPanel HorizontalAlignment="Right">
+                    <Button Content="Проверить данные и продолжить" HorizontalAlignment="Right" Click="Button_Click" Height="36" />
+                </WrapPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

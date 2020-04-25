@@ -90,6 +90,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page4%28Data2%29.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Page1%28Tables%29.xaml.cs">
@@ -100,6 +108,12 @@
     </Compile>
     <Compile Include="Page3%28Data1%29.xaml.cs">
       <DependentUpon>Page3%28Data1%29.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page4%28Data2%29.xaml.cs">
+      <DependentUpon>Page4%28Data2%29.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page5.xaml.cs">
+      <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

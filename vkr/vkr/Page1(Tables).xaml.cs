@@ -57,43 +57,43 @@ namespace vkr
                     objDA1.Fill(excelDataSet1);
                     //dtGrid.DataSet= excelDataSet.Tables[0];
                     dtGrid1.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet1.Tables[0] });
-                    d.X = new double[excelDataSet1.Tables[0].Rows.Count];
+                    d.X = new decimal[excelDataSet1.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet1.Tables[0].Rows.Count; col++)
                     {
-                        d.X[col] = double.Parse(excelDataSet1.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
+                        d.X[col] = decimal.Parse(excelDataSet1.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.Y = new double[excelDataSet1.Tables[0].Rows.Count];
+                    d.Y = new decimal[excelDataSet1.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet1.Tables[0].Rows.Count; col++)
                     {
-                        d.X[col] = double.Parse(excelDataSet1.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
+                        d.X[col] = decimal.Parse(excelDataSet1.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.Z = new double[excelDataSet1.Tables[0].Rows.Count];
+                    d.Z = new decimal[excelDataSet1.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet1.Tables[0].Rows.Count; col++)
                     {
-                        d.X[col] = double.Parse(excelDataSet1.Tables[0].Rows[col][3].ToString(), CultureInfo.InvariantCulture);
+                        d.X[col] = decimal.Parse(excelDataSet1.Tables[0].Rows[col][3].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.AA = double.Parse(excelDataSet1.Tables[0].Rows[0][4].ToString(), CultureInfo.InvariantCulture);
-                    d.BB = double.Parse(excelDataSet1.Tables[0].Rows[0][5].ToString(), CultureInfo.InvariantCulture);
+                    d.AA = decimal.Parse(excelDataSet1.Tables[0].Rows[0][4].ToString(), CultureInfo.InvariantCulture);
+                    d.BB = decimal.Parse(excelDataSet1.Tables[0].Rows[0][5].ToString(), CultureInfo.InvariantCulture);
 
                     OleDbDataAdapter objDA2 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист2$]", cn);
                     DataSet excelDataSet2 = new DataSet();
                     objDA2.Fill(excelDataSet2);
                     //dtGrid.DataSet= excelDataSet.Tables[0];
                     dtGrid2.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet2.Tables[0] });
-                    d.Xp1 = new double[excelDataSet2.Tables[0].Rows.Count];
+                    d.Xp1 = new decimal[excelDataSet2.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet2.Tables[0].Rows.Count; col++)
                     {
-                        d.Xp1[col] = double.Parse(excelDataSet2.Tables[0].Rows[col][0].ToString(), CultureInfo.InvariantCulture);                      
+                        d.Xp1[col] = decimal.Parse(excelDataSet2.Tables[0].Rows[col][0].ToString(), CultureInfo.InvariantCulture);                      
                     }
-                    d.Yp1 = new double[excelDataSet2.Tables[0].Rows.Count];
+                    d.Yp1 = new decimal[excelDataSet2.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet2.Tables[0].Rows.Count; col++)
                     {
-                        d.Yp1[col] = double.Parse(excelDataSet2.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
+                        d.Yp1[col] = decimal.Parse(excelDataSet2.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.Zp1 = new double[excelDataSet2.Tables[0].Rows.Count];
+                    d.Zp1 = new decimal[excelDataSet2.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet2.Tables[0].Rows.Count; col++)
                     {
-                        d.Zp1[col] = double.Parse(excelDataSet2.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
+                        d.Zp1[col] = decimal.Parse(excelDataSet2.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
                     }
 
 
@@ -104,39 +104,39 @@ namespace vkr
                     objDA3.Fill(excelDataSet3);
                     //dtGrid.DataSet= excelDataSet.Tables[0];
                     dtGrid3.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = excelDataSet3.Tables[0] });
-                    d.Xp2 = new double[excelDataSet3.Tables[0].Rows.Count];
+                    d.Xp2 = new decimal[excelDataSet3.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet3.Tables[0].Rows.Count; col++)
                     {
-                        d.Xp2[col] = double.Parse(excelDataSet3.Tables[0].Rows[col][0].ToString(), CultureInfo.InvariantCulture);
+                        d.Xp2[col] = decimal.Parse(excelDataSet3.Tables[0].Rows[col][0].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.Yp2 = new double[excelDataSet3.Tables[0].Rows.Count];
+                    d.Yp2 = new decimal[excelDataSet3.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet3.Tables[0].Rows.Count; col++)
                     {
-                        d.Yp2[col] = double.Parse(excelDataSet3.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
+                        d.Yp2[col] = decimal.Parse(excelDataSet3.Tables[0].Rows[col][1].ToString(), CultureInfo.InvariantCulture);
                     }
-                    d.Zp2 = new double[excelDataSet3.Tables[0].Rows.Count];
+                    d.Zp2 = new decimal[excelDataSet3.Tables[0].Rows.Count];
                     for (int col = 0; col < excelDataSet3.Tables[0].Rows.Count; col++)
                     {
-                        d.Zp2[col] = double.Parse(excelDataSet3.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
+                        d.Zp2[col] = decimal.Parse(excelDataSet3.Tables[0].Rows[col][2].ToString(), CultureInfo.InvariantCulture);
                     }
 
-                    //
-                    //
-                    ///
-                    ///
-                    ////
-                    ///////
-                    /////////
-                    /////////
-                    ////////////
-                    ////вынести эту хкйню дальше
-                    //double[] Xp = Xp1.Concat(Xp2).ToArray();
-                    //double[] Yp = Xp1.Concat(Xp2).ToArray();
-                    //double[] Zp = Xp1.Concat(Xp2).ToArray();
 
-                    d.MY1 = double.Parse(excelDataSet1.Tables[0].Rows[0][6].ToString(), CultureInfo.InvariantCulture);
-                    d.MY2 = double.Parse(excelDataSet1.Tables[0].Rows[0][7].ToString(), CultureInfo.InvariantCulture);
+                    ////////////////////////////
+                    /////////////////////////////
+                    ///////////////////////////
+                    /////////////////////////////
+                    ///////////////////////////////
+                    ///can be transported
+                    
+                    d.Xp = d.Xp1.Concat(d.Xp2).ToArray();
+                    d.Yp = d.Yp1.Concat(d.Yp2).ToArray();
+                    d.Zp = d.Zp1.Concat(d.Zp2).ToArray();
 
+
+                    d.MY1 = decimal.Parse(excelDataSet1.Tables[0].Rows[0][6].ToString(), CultureInfo.InvariantCulture);
+                    d.MY1 = -d.MY1;
+                    d.MY2 = decimal.Parse(excelDataSet1.Tables[0].Rows[0][7].ToString(), CultureInfo.InvariantCulture);
+                    d.MY2 = -d.MY2;
                 }
 
             }

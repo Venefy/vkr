@@ -21,22 +21,22 @@ namespace vkr
     /// </summary>
     public partial class Page2 : Page
     {
-        public Data d2 = new Data();
+        public Data d = new Data();
         
         public Page2(Data data)
         {
             InitializeComponent();
-            d2 = data;
-            d2.Dop= Convert.ToDouble(Dop.Text, CultureInfo.InvariantCulture);
-            d2.S1 = double.Parse(S1.Text, CultureInfo.InvariantCulture);
-            d2.S2 = double.Parse(S2.Text, CultureInfo.InvariantCulture);
-            d2.Ks1 = double.Parse(Ks1.Text, CultureInfo.InvariantCulture);
-            d2.Ks2 = double.Parse(Ks2.Text, CultureInfo.InvariantCulture);
-            d2.Lopt = double.Parse(Lopt.Text, CultureInfo.InvariantCulture);
-            d2.MY3 = double.Parse(MY3.Text, CultureInfo.InvariantCulture);
-            d2.MY4 = double.Parse(MY4.Text, CultureInfo.InvariantCulture);
-            d2.Spl = double.Parse(Spl.Text, CultureInfo.InvariantCulture);
-            d2.Lpl = double.Parse(Lpl.Text, CultureInfo.InvariantCulture);
+            d = data;
+            d.Dop= decimal.Parse(Dop.Text, CultureInfo.InvariantCulture);
+            d.S1 = decimal.Parse(S1.Text, CultureInfo.InvariantCulture);
+            d.S2 = decimal.Parse(S2.Text, CultureInfo.InvariantCulture);
+            d.Ks1 = decimal.Parse(Ks1.Text, CultureInfo.InvariantCulture);
+            d.Ks2 = decimal.Parse(Ks2.Text, CultureInfo.InvariantCulture);
+            d.Lopt = decimal.Parse(Lopt.Text, CultureInfo.InvariantCulture);
+            d.MY3 = decimal.Parse(MY3.Text, CultureInfo.InvariantCulture);
+            d.MY4 = decimal.Parse(MY4.Text, CultureInfo.InvariantCulture);
+            d.Sp1 = decimal.Parse(Sp1.Text, CultureInfo.InvariantCulture);
+            d.Lp1 = decimal.Parse(Lp1.Text, CultureInfo.InvariantCulture);
            
 
         }
@@ -48,7 +48,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.Dop = Convert.ToDouble(Dop.Text, CultureInfo.InvariantCulture);
+                    d.Dop = decimal.Parse(Dop.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -66,7 +66,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.S1 = double.Parse(S1.Text, CultureInfo.InvariantCulture);
+                    d.S1 = decimal.Parse(S1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -84,7 +84,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.S2 = double.Parse(S2.Text, CultureInfo.InvariantCulture);
+                    d.S2 = decimal.Parse(S2.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -101,7 +101,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.Ks1 = double.Parse(Ks1.Text, CultureInfo.InvariantCulture);
+                    d.Ks1 = decimal.Parse(Ks1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -118,7 +118,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.Ks2 = double.Parse(Ks2.Text, CultureInfo.InvariantCulture);
+                    d.Ks2 = decimal.Parse(Ks2.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -135,7 +135,7 @@ namespace vkr
             {
                 try
                 {
-                    d2.Lopt = double.Parse(Lopt.Text, CultureInfo.InvariantCulture);
+                    d.Lopt = decimal.Parse(Lopt.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -152,7 +152,7 @@ namespace vkr
             {
                 try
                 { 
-                    d2.MY3 = double.Parse(MY3.Text, CultureInfo.InvariantCulture);
+                    d.MY3 = decimal.Parse(MY3.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -168,7 +168,7 @@ namespace vkr
             if (this.IsLoaded && Dop.Text.ToString() != "")
             {
                 try { 
-                    d2.MY4 = double.Parse(MY4.Text, CultureInfo.InvariantCulture);
+                    d.MY4 = decimal.Parse(MY4.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -180,43 +180,43 @@ namespace vkr
             }
         }
 
-        private void Spl_TextChanged(object sender, TextChangedEventArgs e)
+        private void Sp1_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.IsLoaded && Dop.Text.ToString() != "")
             {
                 try { 
 
-                    d2.Spl = double.Parse(Spl.Text, CultureInfo.InvariantCulture);
+                    d.Sp1 = decimal.Parse(Sp1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
                     MessageBox.Show("Неверный формат ввода");
                 }
-                Spl.Foreground = Brushes.Black;
-                Spl.FontWeight = FontWeights.Bold;
+                Sp1.Foreground = Brushes.Black;
+                Sp1.FontWeight = FontWeights.Bold;
             }
         }
 
-        private void Lpl_TextChanged(object sender, TextChangedEventArgs e)
+        private void Lp1_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.IsLoaded && Dop.Text.ToString() != "")
             {
                 try
                 { 
-                    d2.Lpl = double.Parse(Lpl.Text, CultureInfo.InvariantCulture);
+                    d.Lp1 = decimal.Parse(Lp1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
                     MessageBox.Show("Неверный формат ввода");
                 }
-                Lpl.Foreground = Brushes.Black;
-                Lpl.FontWeight = FontWeights.Bold;
+                Lp1.Foreground = Brushes.Black;
+                Lp1.FontWeight = FontWeights.Bold;
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Page3 p3 = new Page3(d2);
+            Page5 p3 = new Page5(d);
            
 
             this.NavigationService.Navigate(p3);

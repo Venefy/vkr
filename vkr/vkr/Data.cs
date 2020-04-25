@@ -10,33 +10,37 @@ namespace vkr
         public struct Data
         {
 
-            public double[] X;
-            public double[] Y;
-            public double[] Z;
+            public decimal[] X;
+            public decimal[] Y;
+            public decimal[] Z;
 
-            public double[] Xp1;
-            public double[] Yp1;
-            public double[] Zp1;
+            public decimal[] Xp1;
+            public decimal[] Yp1;
+            public decimal[] Zp1;
 
-            public double[] Xp2;
-            public double[] Yp2;
-            public double[] Zp2;
+            public decimal[] Xp2;
+            public decimal[] Yp2;
+            public decimal[] Zp2;
 
-            public double AA;
-            public double BB;
-            public double MY1;
-            public double MY2;
+        public decimal[] Xp;
+        public decimal[] Yp;
+        public decimal[] Zp;
 
-            public double Dop;
-            public double S1;
-            public double S2;
-            public double Ks1;
-            public double Ks2;
-            public double Lopt;
-            public double MY3;
-            public double MY4;
-            public double Spl;
-            public double Lpl;
+            public decimal AA;
+            public decimal BB;
+            public decimal MY1;
+            public decimal MY2;
+
+            public decimal Dop;
+            public decimal S1;
+            public decimal S2;
+            public decimal Ks1;
+            public decimal Ks2;
+            public decimal Lopt;
+            public decimal MY3;
+            public decimal MY4;
+            public decimal Sp1;
+            public decimal Lp1;
 
 
     }

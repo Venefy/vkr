@@ -87,11 +87,11 @@
             </WrapPanel>
             <WrapPanel>
                 <TextBlock  TextWrapping="Wrap" Text="Ширина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-                <TextBox Name="Spl" Height="23" TextWrapping="Wrap" Text="20" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Spl_TextChanged"/>
+                <TextBox Name="Sp1" Height="23" TextWrapping="Wrap" Text="20" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Sp1_TextChanged"/>
             </WrapPanel>
             <WrapPanel >
                 <TextBlock  TextWrapping="Wrap" Text="Длина планки для юстировки" Width="460" TextAlignment="Right" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-                <TextBox Name="Lpl" Height="23" TextWrapping="Wrap" Text="80" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lpl_TextChanged"/>
+                <TextBox Name="Lp1" Height="23" TextWrapping="Wrap" Text="80" RenderTransformOrigin="0.5,0.5" Width="140" TextChanged="Lp1_TextChanged"/>
                     
             </WrapPanel>
                 <WrapPanel HorizontalAlignment="Right">
