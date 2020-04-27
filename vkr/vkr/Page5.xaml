@@ -5,40 +5,106 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:vkr"
       xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"  
+       xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page5">
 
-    
+
     <Grid>
-        <Grid.Resources>
-            <!--<local:EmployeeCollection x:Key="EmployeesCollection" />
-            <local:FruitCollection x:Key="FruitCollection" />
-            <local:AreaDataCollection x:Key="AreaDataCollection" />-->
-        </Grid.Resources>
 
-        <TextBlock Name="MNK" TextWrapping="Wrap" Text=""/>
+        <ScrollViewer>
 
 
-        <DVC:Chart Canvas.Top="80" Canvas.Left="10" Name="Chart1" Width="400" Height="250" Background="LightSteelBlue">
-            <DVC:Chart.Series>
-                <DVC:ColumnSeries Title="Experience" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"></DVC:ColumnSeries>
-            </DVC:Chart.Series>
-        </DVC:Chart>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Name="MNK" TextWrapping="Wrap" Text=""/>
+            </WrapPanel>
 
-        <!-- Column Chart -->
-        <!--<DVC:Chart Canvas.Top="80" Canvas.Left="10" Name="Chart1" 
-           Width="400" Height="250"
-           Background="LightSteelBlue">
+            <WrapPanel>
 
-            <DVC:Chart.Series>
-                <DVC:ColumnSeries Title="Experience" >
-                    --><!--IndependentValueBinding="{Binding Path=Key}"
-    	            DependentValueBinding="{Binding Path=Value}">--><!--
-                </DVC:ColumnSeries>
-            </DVC:Chart.Series>
-        </DVC:Chart>-->
-        
+
+                <DVC:Chart Name="Chart1" Width="200" Height="150" Background="LightGray">
+                    <DVC:Chart.Template>
+                        <ControlTemplate TargetType="{x:Type DVC:Chart}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                    <Grid>
+
+                                        <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="5,5,5,5">
+                                            <Grid Panel.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                            <Border Panel.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                        </chartingprimitives:EdgePanel>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+
+                        </ControlTemplate>
+
+                    </DVC:Chart.Template>
+
+                    <DVC:Chart.Series>
+                        <DVC:ColumnSeries Title="Кол-во" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"  >
+                            <DVC:ColumnSeries.LegendItemStyle>
+                                <Style TargetType="DVC:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+
+                            </DVC:ColumnSeries.LegendItemStyle>
+
+                        </DVC:ColumnSeries>
+
+                    </DVC:Chart.Series>
+                </DVC:Chart>
+
+
+
+                <DVC:Chart Name="Chart2" Width="200" Height="150" Background="LightGray">
+                    <DVC:Chart.Template>
+                        <ControlTemplate TargetType="{x:Type DVC:Chart}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                    <Grid>
+                                 
+                                        <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="5,5,5,5">
+                                            <Grid Panel.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                            <Border Panel.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                        </chartingprimitives:EdgePanel>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+
+                        </ControlTemplate>
+
+                    </DVC:Chart.Template>
+
+                    <DVC:Chart.Series>
+                        <DVC:ColumnSeries Title="Кол-во" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"  >
+                            <DVC:ColumnSeries.LegendItemStyle>
+                                <Style TargetType="DVC:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+
+                            </DVC:ColumnSeries.LegendItemStyle>
+
+                        </DVC:ColumnSeries>
+
+                    </DVC:Chart.Series>
+                </DVC:Chart>
+            </WrapPanel>
+        </StackPanel>
+
+        </ScrollViewer>
     </Grid>
 </Page>

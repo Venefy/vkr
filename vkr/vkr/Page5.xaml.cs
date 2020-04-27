@@ -148,8 +148,7 @@ namespace vkr
             }
             string mnk2 = "\n Cреднее расстояние от точек поверхности 1 до плоскости: " + Lp1.Average().ToString() + "\n Максимальное: " + Lp1.Max().ToString() + "\n Минимальное: " + Lp1.Min().ToString();
             MNK.Text += mnk2;
-
-          
+            LoadColumnChartData(Lp1, Chart1);
         }
 
         public void CalcMNK4()
@@ -208,15 +207,13 @@ namespace vkr
             string mnk2 = "\n Cреднее расстояние от точек поверхности 2 до плоскости: " + Lp2.Average().ToString() + "\n Максимальное: " + Lp2.Max().ToString() + "\n Минимальное: " + Lp2.Min().ToString();
             MNK.Text += mnk2;
 
-            LoadColumnChartData(Lp2);
-            //Chart1.Series.SetBinding(ItemsControl.ItemsSourceProperty, new Binding { Source = Lp2 });
-            //((ColumnSeries)Chart1.Series[0]).ItemsSource = Lp2;
+            LoadColumnChartData(Lp2, Chart2);
             
 
         }
 
 
-        private void LoadColumnChartData(decimal[] lp)
+        private void LoadColumnChartData(decimal[] lp, Chart chart)
         {
             decimal max = lp.Max();
             decimal min = lp.Min();
@@ -236,14 +233,14 @@ namespace vkr
                     else a3++;
                 }
             }
-            ////
-            ((ColumnSeries)Chart1.Series[0]).ItemsSource = new KeyValuePair<decimal, int>[] {
+            ////add data to charts
+            ((ColumnSeries)chart.Series[0]).ItemsSource = new KeyValuePair<decimal, int>[] {
 
-            new KeyValuePair < decimal, int > (min, a1),
-            new KeyValuePair<decimal, int>(lp.Average(), a2),
-            new KeyValuePair<decimal, int>(max, a3)};
-            // new KeyValuePair < string, int > ("Developer", 4)
+            new KeyValuePair < decimal, int > (Math.Round(min, 4), a1),
+            new KeyValuePair<decimal, int>(Math.Round(lp.Average(), 4), a2),
+            new KeyValuePair<decimal, int>(Math.Round(max,4), a3)};
+            
         }
-        //lp1 lp2 to gist data)))))))))))))
+        
     }
 }
