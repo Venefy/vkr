@@ -27,16 +27,16 @@ namespace vkr
         {
             InitializeComponent();
             d = data;
-            d.Dop= decimal.Parse(Dop.Text, CultureInfo.InvariantCulture);
-            d.S1 = decimal.Parse(S1.Text, CultureInfo.InvariantCulture);
-            d.S2 = decimal.Parse(S2.Text, CultureInfo.InvariantCulture);
-            d.Ks1 = decimal.Parse(Ks1.Text, CultureInfo.InvariantCulture);
-            d.Ks2 = decimal.Parse(Ks2.Text, CultureInfo.InvariantCulture);
-            d.Lopt = decimal.Parse(Lopt.Text, CultureInfo.InvariantCulture);
-            d.MY3 = decimal.Parse(MY3.Text, CultureInfo.InvariantCulture);
-            d.MY4 = decimal.Parse(MY4.Text, CultureInfo.InvariantCulture);
-            d.Sp1 = decimal.Parse(Sp1.Text, CultureInfo.InvariantCulture);
-            d.Lp1 = decimal.Parse(Lp1.Text, CultureInfo.InvariantCulture);
+            d.Dop= double.Parse(Dop.Text, CultureInfo.InvariantCulture);
+            d.S1 = double.Parse(S1.Text, CultureInfo.InvariantCulture);
+            d.S2 = double.Parse(S2.Text, CultureInfo.InvariantCulture);
+            d.Ks1 = double.Parse(Ks1.Text, CultureInfo.InvariantCulture);
+            d.Ks2 = double.Parse(Ks2.Text, CultureInfo.InvariantCulture);
+            d.Lopt = double.Parse(Lopt.Text, CultureInfo.InvariantCulture);
+            d.MY3 = double.Parse(MY3.Text, CultureInfo.InvariantCulture);
+            d.MY4 = double.Parse(MY4.Text, CultureInfo.InvariantCulture);
+            d.Sp1 = double.Parse(Sp1.Text, CultureInfo.InvariantCulture);
+            d.Lp1 = double.Parse(Lp1.Text, CultureInfo.InvariantCulture);
            
 
         }
@@ -48,7 +48,7 @@ namespace vkr
             {
                 try
                 {
-                    d.Dop = decimal.Parse(Dop.Text, CultureInfo.InvariantCulture);
+                    d.Dop = double.Parse(Dop.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -66,7 +66,7 @@ namespace vkr
             {
                 try
                 {
-                    d.S1 = decimal.Parse(S1.Text, CultureInfo.InvariantCulture);
+                    d.S1 = double.Parse(S1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -84,7 +84,7 @@ namespace vkr
             {
                 try
                 {
-                    d.S2 = decimal.Parse(S2.Text, CultureInfo.InvariantCulture);
+                    d.S2 = double.Parse(S2.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -101,7 +101,7 @@ namespace vkr
             {
                 try
                 {
-                    d.Ks1 = decimal.Parse(Ks1.Text, CultureInfo.InvariantCulture);
+                    d.Ks1 = double.Parse(Ks1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -118,7 +118,7 @@ namespace vkr
             {
                 try
                 {
-                    d.Ks2 = decimal.Parse(Ks2.Text, CultureInfo.InvariantCulture);
+                    d.Ks2 = double.Parse(Ks2.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -135,7 +135,7 @@ namespace vkr
             {
                 try
                 {
-                    d.Lopt = decimal.Parse(Lopt.Text, CultureInfo.InvariantCulture);
+                    d.Lopt = double.Parse(Lopt.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -152,7 +152,7 @@ namespace vkr
             {
                 try
                 { 
-                    d.MY3 = decimal.Parse(MY3.Text, CultureInfo.InvariantCulture);
+                    d.MY3 = double.Parse(MY3.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -168,7 +168,7 @@ namespace vkr
             if (this.IsLoaded && Dop.Text.ToString() != "")
             {
                 try { 
-                    d.MY4 = decimal.Parse(MY4.Text, CultureInfo.InvariantCulture);
+                    d.MY4 = double.Parse(MY4.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -186,7 +186,7 @@ namespace vkr
             {
                 try { 
 
-                    d.Sp1 = decimal.Parse(Sp1.Text, CultureInfo.InvariantCulture);
+                    d.Sp1 = double.Parse(Sp1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {
@@ -203,7 +203,7 @@ namespace vkr
             {
                 try
                 { 
-                    d.Lp1 = decimal.Parse(Lp1.Text, CultureInfo.InvariantCulture);
+                    d.Lp1 = double.Parse(Lp1.Text, CultureInfo.InvariantCulture);
                 }
                 catch
                 {

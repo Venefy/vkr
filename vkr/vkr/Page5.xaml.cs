@@ -32,25 +32,25 @@ namespace vkr
             CalcMNK2();
             CalcMNK3();
             CalcMNK4();
-
+            CalcMNK5();
         }
 
         public void CalcMNK2()
         {
-            decimal a1 = 0;
-            decimal b1 = 0;
-            decimal c1 = 0;
-            decimal d1 = 0;
-            decimal a2 = 0;
-            decimal b2 = 0;
-            decimal c2 = 0;
-            decimal d2 = 0;
-            decimal a3 = 0;
-            decimal b3 = 0;
-            decimal c3 = 0;
-            decimal d3 = 0;
+            double a1 = 0;
+            double b1 = 0;
+            double c1 = 0;
+            double d1 = 0;
+            double a2 = 0;
+            double b2 = 0;
+            double c2 = 0;
+            double d2 = 0;
+            double a3 = 0;
+            double b3 = 0;
+            double c3 = 0;
+            double d3 = 0;
 
-            decimal[] abc = new decimal[4];
+            double[] abc = new double[4];
             for (int i = 0; i < d.Xp.Length; i++)
             {
 
@@ -71,9 +71,9 @@ namespace vkr
 
             }
 
-            decimal k12 = (-1 * a2 / a1);
-            decimal k13 = (-1 * a3 / a1);
-            decimal k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
+            double k12 = (-1 * a2 / a1);
+            double k13 = (-1 * a3 / a1);
+            double k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
             abc[3] =  ((d3 + k13 * d1) + k23 * (d2 + k12 * d1)) / ((c3 + k13 * c1) + k23 * (c2 + k12 * c1));
             abc[2] = -1;
             abc[1] =  (d2 + k12 * d1 - (c2 + k12 * c1) * abc[3]) / (b2 + k12 * b1);
@@ -83,10 +83,10 @@ namespace vkr
              mnk1 += "\n2)\t Коэффициенты, описывающие плоскость (Π12), которая удовлетворяет распределению точек поверхностей 1 и 2 наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() +"\t d: " + abc[3].ToString();
 
             MNK.Text += mnk1;
-            decimal[] Lp = new decimal[d.Xp.Length];
+            double[] Lp = new double[d.Xp.Length];
             for (int i = 0; i < d.Xp.Length; i++)
             {
-                Lp[i] = Math.Abs((abc[0] * d.Xp[i] + abc[1] * d.Yp[i] + abc[2] * d.Zp[i] + abc[3]) / (decimal)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
+                Lp[i] = Math.Abs((abc[0] * d.Xp[i] + abc[1] * d.Yp[i] + abc[2] * d.Zp[i] + abc[3]) / (double)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
             }
             string mnk2 = "\n Cреднее расстояние от точек поверхности 1 и поверхности 2 до плоскости: " + Lp.Average().ToString() + "\n Максимальное: " + Lp.Max().ToString() + "\n Минимальное: " + Lp.Min().ToString();
             MNK.Text += mnk2;
@@ -95,20 +95,20 @@ namespace vkr
 
         public void CalcMNK3()
         {
-            decimal a1 = 0;
-            decimal b1 = 0;
-            decimal c1 = 0;
-            decimal d1 = 0;
-            decimal a2 = 0;
-            decimal b2 = 0;
-            decimal c2 = 0;
-            decimal d2 = 0;
-            decimal a3 = 0;
-            decimal b3 = 0;
-            decimal c3 = 0;
-            decimal d3 = 0;
+            double a1 = 0;
+            double b1 = 0;
+            double c1 = 0;
+            double d1 = 0;
+            double a2 = 0;
+            double b2 = 0;
+            double c2 = 0;
+            double d2 = 0;
+            double a3 = 0;
+            double b3 = 0;
+            double c3 = 0;
+            double d3 = 0;
 
-            decimal[] abc = new decimal[4];
+            double[] abc = new double[4];
             for (int i = 0; i < d.Xp1.Length; i++)
             {
 
@@ -129,9 +129,9 @@ namespace vkr
 
             }
 
-            decimal k12 = (-1 * a2 / a1);
-            decimal k13 = (-1 * a3 / a1);
-            decimal k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
+            double k12 = (-1 * a2 / a1);
+            double k13 = (-1 * a3 / a1);
+            double k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
             abc[3] = ((d3 + k13 * d1) + k23 * (d2 + k12 * d1)) / ((c3 + k13 * c1) + k23 * (c2 + k12 * c1));
             abc[2] = -1;
             abc[1] = (d2 + k12 * d1 - (c2 + k12 * c1) * abc[3]) / (b2 + k12 * b1);
@@ -141,32 +141,36 @@ namespace vkr
             mnk1 += "\n\n3)\t Коэффициенты, описывающие плоскость (Π1), которая удовлетворяет распределению точек поверхности 1 наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() + "\n d: " + abc[3].ToString();
 
             MNK.Text += mnk1;
-            decimal[] Lp1 = new decimal[d.Xp1.Length];
+            double[] Lp1 = new double[d.Xp1.Length];
             for (int i = 0; i < d.Xp1.Length; i++)
             {
-                Lp1[i] = Math.Abs((abc[0] * d.Xp1[i] + abc[1] * d.Yp1[i] + abc[2] * d.Zp1[i] + abc[3]) / (decimal)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
+                Lp1[i] = Math.Abs((abc[0] * d.Xp1[i] + abc[1] * d.Yp1[i] + abc[2] * d.Zp1[i] + abc[3]) / (double)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
             }
-            string mnk2 = "\n Cреднее расстояние от точек поверхности 1 до плоскости: " + Lp1.Average().ToString() + "\n Максимальное: " + Lp1.Max().ToString() + "\n Минимальное: " + Lp1.Min().ToString();
-            MNK.Text += mnk2;
+            mnk1 = "\n Cреднее расстояние от точек поверхности 1 до плоскости: " + Lp1.Average().ToString() + "\n Максимальное: " + Lp1.Max().ToString() + "\n Минимальное: " + Lp1.Min().ToString();
+            MNK.Text += mnk1;
             LoadColumnChartData(Lp1, Chart1);
+            double ug = Math.Atan(-1 * abc[0] / abc[2]) * 180 * 3600 / Math.PI;
+            double ug1 = Math.Atan(-1 * abc[1] / abc[2]) * 180 * 3600 / Math.PI;
+            mnk1 = "\nУгол наклона плоскости 1 относительно системы координат в угловых секундах: \n Uoxz1=" + ug.ToString() + "\t Uoyz1=" + ug1.ToString();
+            MNK.Text += mnk1;
         }
 
         public void CalcMNK4()
         {
-            decimal a1 = 0;
-            decimal b1 = 0;
-            decimal c1 = 0;
-            decimal d1 = 0;
-            decimal a2 = 0;
-            decimal b2 = 0;
-            decimal c2 = 0;
-            decimal d2 = 0;
-            decimal a3 = 0;
-            decimal b3 = 0;
-            decimal c3 = 0;
-            decimal d3 = 0;
+            double a1 = 0;
+            double b1 = 0;
+            double c1 = 0;
+            double d1 = 0;
+            double a2 = 0;
+            double b2 = 0;
+            double c2 = 0;
+            double d2 = 0;
+            double a3 = 0;
+            double b3 = 0;
+            double c3 = 0;
+            double d3 = 0;
 
-            decimal[] abc = new decimal[4];
+            double[] abc = new double[4];
             for (int i = 0; i < d.Xp2.Length; i++)
             {
 
@@ -187,44 +191,164 @@ namespace vkr
 
             }
 
-            decimal k12 = (-1 * a2 / a1);
-            decimal k13 = (-1 * a3 / a1);
-            decimal k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
+            double k12 = (-1 * a2 / a1);
+            double k13 = (-1 * a3 / a1);
+            double k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
             abc[3] = ((d3 + k13 * d1) + k23 * (d2 + k12 * d1)) / ((c3 + k13 * c1) + k23 * (c2 + k12 * c1));
             abc[2] = -1;
             abc[1] = (d2 + k12 * d1 - (c2 + k12 * c1) * abc[3]) / (b2 + k12 * b1);
             abc[0] = (d1 - b1 * abc[1] - c1 * abc[3]) / a1;
             string mnk1 = "";
 
-            mnk1 += "\n\n4)\t Коэффициенты, описывающие плоскость (Π2), которая удовлетворяет распределению точек поверхности 2 наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() + "\n d: " + abc[3].ToString();
+            mnk1 = "\n\n4)\t Коэффициенты, описывающие плоскость (Π2), которая удовлетворяет распределению точек поверхности 2 наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() + "\n d: " + abc[3].ToString();
 
             MNK.Text += mnk1;
-            decimal[] Lp2 = new decimal[d.Xp2.Length];
+            double[] Lp2 = new double[d.Xp2.Length];
             for (int i = 0; i < d.Xp2.Length; i++)
             {
-                Lp2[i] = Math.Abs((abc[0] * d.Xp2[i] + abc[1] * d.Yp2[i] + abc[2] * d.Zp2[i] + abc[3]) / (decimal)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
+                Lp2[i] = Math.Abs((abc[0] * d.Xp2[i] + abc[1] * d.Yp2[i] + abc[2] * d.Zp2[i] + abc[3]) / (double)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
             }
-            string mnk2 = "\n Cреднее расстояние от точек поверхности 2 до плоскости: " + Lp2.Average().ToString() + "\n Максимальное: " + Lp2.Max().ToString() + "\n Минимальное: " + Lp2.Min().ToString();
-            MNK.Text += mnk2;
+            mnk1 = "\n Cреднее расстояние от точек поверхности 2 до плоскости: " + Lp2.Average().ToString() + "\n Максимальное: " + Lp2.Max().ToString() + "\n Минимальное: " + Lp2.Min().ToString();
+            MNK.Text += mnk1;
 
             LoadColumnChartData(Lp2, Chart2);
-            
+
+            double ug = Math.Atan(-1 * abc[0] / abc[2]) * 180 * 3600 / Math.PI;
+            double ug1 = Math.Atan(-1 * abc[1] / abc[2]) * 180 * 3600 / Math.PI;
+            mnk1 = "\nУгол наклона плоскости 2 относительно системы координат в угловых секундах: \n Uoxz2=" + ug.ToString() + "\t Uoyz2=" + ug1.ToString();
+            MNK.Text += mnk1;
+
 
         }
 
-
-        private void LoadColumnChartData(decimal[] lp, Chart chart)
+        public void CalcMNK5()
         {
-            decimal max = lp.Max();
-            decimal min = lp.Min();
-            decimal a = min + ((max-min)/(decimal)3);
-            decimal b = max - ((max-min)/(decimal)3);
-            
+            double a1 = 0;
+            double b1 = 0;
+            double c1 = 0;
+            double d1 = 0;
+            double a2 = 0;
+            double b2 = 0;
+            double c2 = 0;
+            double d2 = 0;
+            double a3 = 0;
+            double b3 = 0;
+            double c3 = 0;
+            double d3 = 0;
+
+            double[] abc = new double[4];
+            for (int i = 0; i < d.X.Length; i++)
+            {
+
+
+                a1 += (d.X[i] * d.X[i]);
+                b1 += (d.X[i] * d.Y[i]);
+                c1 += (d.X[i]);
+                d1 += (d.X[i] * d.Z[i]);
+                a2 = b1;
+                b2 += (d.Y[i] * d.Y[i]);
+                c2 += (d.Y[i]);
+                d2 += (d.Y[i] * d.Z[i]);
+                a3 = c1;
+                b3 = c2;
+                c3 += 1;
+                d3 += (d.Z[i]);
+
+
+            }
+
+            double k12 = (-1 * a2 / a1);
+            double k13 = (-1 * a3 / a1);
+            double k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
+            abc[3] = ((d3 + k13 * d1) + k23 * (d2 + k12 * d1)) / ((c3 + k13 * c1) + k23 * (c2 + k12 * c1));
+            abc[2] = -1;
+            abc[1] = (d2 + k12 * d1 - (c2 + k12 * c1) * abc[3]) / (b2 + k12 * b1);
+            abc[0] = (d1 - b1 * abc[1] - c1 * abc[3]) / a1;
+            string mnk1 = "";
+
+            mnk1 = "\n\n5)\t Коэффициенты, описывающие плоскость (M), которая удовлетворяет распределению точек поверхности M наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() + "\n d: " + abc[3].ToString();
+
+            MNK.Text += mnk1;
+            double[] L = new double[d.X.Length];
+            for (int i = 0; i < d.X.Length; i++)
+            {
+                L[i] = Math.Abs((abc[0] * d.X[i] + abc[1] * d.Y[i] + abc[2] * d.Z[i] + abc[3]) / (double)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
+            }
+            mnk1 = "\n Cреднее расстояние от точек поверхности M до плоскости: " + L.Average().ToString() + "\n Максимальное: " + L.Max().ToString() + "\n Минимальное: " + L.Min().ToString();
+            MNK.Text += mnk1;
+
+            LoadColumnChartDataM(L, Chart3);
+
+            double ug = Math.Atan(-1 * abc[0] / abc[2]) * 180 * 3600 / Math.PI;
+            double ug1 = Math.Atan(-1 * abc[1] / abc[2]) * 180 * 3600 / Math.PI;
+            mnk1 = "\nУгол наклона плоскости M относительно системы координат в угловых секундах: \n UoxzM=" + ug.ToString() + "\t UoyzM=" + ug1.ToString();
+            MNK.Text += mnk1;
+            LoadLine(line1);
+
+
+        }
+        private void LoadColumnChartDataM(double[] lp, Chart chart)
+        {
+            double max = lp.Max();
+            double min = lp.Min();
+            double a = min + ((max-min)/(double)6);
+            double b = min + ((max-min)/(double)3);
+            double c = min + ((max - min) / (double)2);
+            double d = max - ((max - min) / (double)3);
+            double e = max - ((max - min) / (double)6);
+
             int a1=0;
             int a2=0;
             int a3=0;
-             
+            int a4 = 0;
+            int a5 = 0;
+            int a6 = 0;
+
             for (int i = 0; i<lp.Length;i++)
+            {
+                if (lp[i] < a) a1++;
+                else
+                {
+                    if (lp[i] < b) a2++;
+                    else
+                    {
+                        if (lp[i] < c) a3++;
+                        else
+                        {
+                            if (lp[i] < d) a4++;
+                            else
+                            {
+                                if (lp[i] < e) a5++;
+                                else a6++;
+                            }
+                        }
+                    }
+                }
+            }
+            ////add data to charts
+            ((ColumnSeries)chart.Series[0]).ItemsSource = new KeyValuePair<double, int>[] {
+
+            new KeyValuePair < double, int > (Math.Round(a, 4), a1),
+            new KeyValuePair<double, int>(Math.Round(b, 4), a2),
+            new KeyValuePair<double, int>(Math.Round(c, 4), a3),
+            new KeyValuePair<double, int>(Math.Round(d, 4), a4),
+            new KeyValuePair<double, int>(Math.Round(e, 4), a5),
+            new KeyValuePair<double, int>(Math.Round(max, 4), a6)};
+            
+        }
+
+        private void LoadColumnChartData(double[] lp, Chart chart)
+        {
+            double max = lp.Max();
+            double min = lp.Min();
+            double a = min + ((max - min) / (double)3);
+            double b = max - ((max - min) / (double)3);
+
+            int a1 = 0;
+            int a2 = 0;
+            int a3 = 0;
+
+            for (int i = 0; i < lp.Length; i++)
             {
                 if (lp[i] < a) a1++;
                 else
@@ -234,13 +358,26 @@ namespace vkr
                 }
             }
             ////add data to charts
-            ((ColumnSeries)chart.Series[0]).ItemsSource = new KeyValuePair<decimal, int>[] {
+            ((ColumnSeries)chart.Series[0]).ItemsSource = new KeyValuePair<double, int>[] {
 
-            new KeyValuePair < decimal, int > (Math.Round(min, 4), a1),
-            new KeyValuePair<decimal, int>(Math.Round(lp.Average(), 4), a2),
-            new KeyValuePair<decimal, int>(Math.Round(max,4), a3)};
-            
+            new KeyValuePair < double, int > (Math.Round(min, 4), a1),
+            new KeyValuePair<double, int>(Math.Round(lp.Average(), 4), a2),
+            new KeyValuePair<double, int>(Math.Round(max,4), a3)};
+
         }
+
+        private void LoadLine(Chart chart)
+        {
+
+            ////add data to charts
+            var ok = new KeyValuePair<double, double>[d.Z.Length];
+            for (int i = 0; i < d.X.Length; i++)
+                ok[i]=new KeyValuePair<double, double>(d.Z[i], d.X[i]);
+            ((LineSeries)chart.Series[0]).ItemsSource = ok;
+            
+
+        }
+
         
     }
 }
