@@ -50,7 +50,10 @@ namespace vkr
                 var con = new SmartConnection();
                 using (var cn = new OleDbConnection(con.ConnectionString(openfile.FileName, 1)))
                 {
-                    cn.Open();
+                    try
+                    {
+                        cn.Open();
+                  
 
                     OleDbDataAdapter objDA1 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
                     DataSet excelDataSet1 = new DataSet();
@@ -97,9 +100,11 @@ namespace vkr
                     }
 
 
+                        
 
 
-                    OleDbDataAdapter objDA3 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист3$]", cn);
+
+                        OleDbDataAdapter objDA3 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист3$]", cn);
                     DataSet excelDataSet3 = new DataSet();
                     objDA3.Fill(excelDataSet3);
                     //dtGrid.DataSet= excelDataSet.Tables[0];
@@ -132,11 +137,19 @@ namespace vkr
                     d.Yp = d.Yp1.Concat(d.Yp2).ToArray();
                     d.Zp = d.Zp1.Concat(d.Zp2).ToArray();
 
+                     
+                        
 
-                    d.MY1 = double.Parse(excelDataSet1.Tables[0].Rows[0][6].ToString(), CultureInfo.InvariantCulture);
+
+                        d.MY1 = double.Parse(excelDataSet1.Tables[0].Rows[0][6].ToString(), CultureInfo.InvariantCulture);
                     d.MY1 = -d.MY1;
                     d.MY2 = double.Parse(excelDataSet1.Tables[0].Rows[0][7].ToString(), CultureInfo.InvariantCulture);
                     d.MY2 = -d.MY2;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Введен путь не к таблице");
+                    }
                 }
 
             }

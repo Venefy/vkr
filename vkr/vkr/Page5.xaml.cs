@@ -33,6 +33,7 @@ namespace vkr
             CalcMNK3();
             CalcMNK4();
             CalcMNK5();
+            CalcMNK6butnot6();
         }
 
         public void CalcMNK2()
@@ -220,7 +221,7 @@ namespace vkr
 
 
         }
-
+        
         public void CalcMNK5()
         {
             double a1 = 0;
@@ -283,7 +284,114 @@ namespace vkr
             double ug1 = Math.Atan(-1 * abc[1] / abc[2]) * 180 * 3600 / Math.PI;
             mnk1 = "\nУгол наклона плоскости M относительно системы координат в угловых секундах: \n UoxzM=" + ug.ToString() + "\t UoyzM=" + ug1.ToString();
             MNK.Text += mnk1;
-            LoadLine(line1);
+            LoadLine(0,d.X, d.Z, line1,false);
+
+            double[] Pro = new double[d.X.Length];
+            double[] Pro_d = new double[d.X.Length];
+            double[] Pro_dd = new double[d.X.Length];
+            for (int i = 0; i < d.X.Length; i++)
+            {
+                Pro[i] = -1*(abc[0] * d.X[i] + abc[1] * d.MY1 + abc[3]) / abc[2];
+                Pro_d[i] = Pro[i] + d.Dop;
+                Pro_dd[i] = Pro[i] - d.Dop;
+
+            }
+            LoadLine(1,d.X, Pro, line1,true);
+            LoadLine(2, d.X, Pro_d, line1,true);
+            LoadLine(3, d.X, Pro_dd, line1,true);
+
+
+        }
+
+        public void CalcMNK6butnot6()
+        {
+            d.XX = new double[d.X.Length / 2];
+            d.YY = new double[d.X.Length / 2];
+            d.ZZ = new double[d.X.Length / 2];
+            int k = 0;
+            for (int i = 0; i < d.X.Length / 2; i++)
+            {
+
+                d.XX[i] = (d.X[k] + d.X[k + 1]) / 2;
+                d.YY[i] = (d.Y[k] + d.Y[k + 1]) / 2;
+                d.ZZ[i] = (d.Z[k] + d.Z[k + 1]) / 2;
+                k += 2;
+            }
+
+            double a1 = 0;
+            double b1 = 0;
+            double c1 = 0;
+            double d1 = 0;
+            double a2 = 0;
+            double b2 = 0;
+            double c2 = 0;
+            double d2 = 0;
+            double a3 = 0;
+            double b3 = 0;
+            double c3 = 0;
+            double d3 = 0;
+
+            double[] abc = new double[4];
+            for (int i = 0; i < d.XX.Length; i++)
+            {
+
+
+                a1 += (d.XX[i] * d.XX[i]);
+                b1 += (d.XX[i] * d.YY[i]);
+                c1 += (d.XX[i]);
+                d1 += (d.XX[i] * d.ZZ[i]);
+                a2 = b1;
+                b2 += (d.YY[i] * d.YY[i]);
+                c2 += (d.YY[i]);
+                d2 += (d.YY[i] * d.ZZ[i]);
+                a3 = c1;
+                b3 = c2;
+                c3 += 1;
+                d3 += (d.ZZ[i]);
+
+
+            }
+
+            double k12 = (-1 * a2 / a1);
+            double k13 = (-1 * a3 / a1);
+            double k23 = (-1 * (b3 + k13 * b1) / (b2 + k12 * b1));
+            abc[3] = ((d3 + k13 * d1) + k23 * (d2 + k12 * d1)) / ((c3 + k13 * c1) + k23 * (c2 + k12 * c1));
+            abc[2] = -1;
+            abc[1] = (d2 + k12 * d1 - (c2 + k12 * c1) * abc[3]) / (b2 + k12 * b1);
+            abc[0] = (d1 - b1 * abc[1] - c1 * abc[3]) / a1;
+            string mnk1 = "";
+
+            mnk1 = "\n\n6)\t Коэффициенты, описывающие плоскость (M), которая удовлетворяет распределению точек поверхности M наилучшим образом. \na:" + abc[0].ToString() + "\n b: " + abc[1].ToString() + "\n c: " + abc[2].ToString() + "\n d: " + abc[3].ToString();
+
+            MNK.Text += mnk1;
+            double[] L = new double[d.X.Length/2];
+            for (int i = 0; i < d.X.Length/2; i++)
+            {
+                L[i] = Math.Abs((abc[0] * d.XX[i] + abc[1] * d.YY[i] + abc[2] * d.ZZ[i] + abc[3]) / (double)(Math.Sqrt((double)(abc[0] * abc[0] + abc[1] * abc[1] + abc[2] * abc[2]))));
+            }
+            mnk1 = "\n Cреднее расстояние от точек поверхности M до плоскости: " + L.Average().ToString() + "\n Максимальное: " + L.Max().ToString() + "\n Минимальное: " + L.Min().ToString();
+            MNK.Text += mnk1;
+
+            LoadColumnChartDataM(L, Chart4);
+
+            double ug = Math.Atan(-1 * abc[0] / abc[2]) * 180 * 3600 / Math.PI;
+            double ug1 = Math.Atan(-1 * abc[1] / abc[2]) * 180 * 3600 / Math.PI;
+            mnk1 = "\nУгол наклона плоскости M относительно системы координат в угловых секундах: \n UoxzM=" + ug.ToString() + "\t UoyzM=" + ug1.ToString();
+            MNK.Text += mnk1;
+            LoadLine(0,d.XX, d.ZZ, line2,false);
+            double[] Pro = new double[d.X.Length/2];
+            double[] Pro_d = new double[d.X.Length/2];
+            double[] Pro_dd = new double[d.X.Length/2];
+            for (int i = 0; i < d.X.Length/2; i++)
+            {
+                Pro[i] = -1 * (abc[0] * d.XX[i] + abc[1] * d.MY1 + abc[3]) / abc[2];
+                Pro_d[i] = Pro[i] + d.Dop;
+                Pro_dd[i] = Pro[i] - d.Dop;
+
+            }
+            LoadLine(1, d.XX, Pro, line2, true);
+            LoadLine(2, d.XX, Pro_d, line2, true);
+            LoadLine(3, d.XX, Pro_dd, line2, true);
 
 
         }
@@ -366,18 +474,42 @@ namespace vkr
 
         }
 
-        private void LoadLine(Chart chart)
+        private void LoadLine(int ii,double[] x, double[] y, Chart chart, bool yes)
         {
-
+            if (yes == true)
+            {
+                Style dataPointStyle = GetNewDataPointStyle();
+                ((LineSeries)chart.Series[ii]).DataPointStyle = dataPointStyle;
+            }
             ////add data to charts
-            var ok = new KeyValuePair<double, double>[d.Z.Length];
-            for (int i = 0; i < d.X.Length; i++)
-                ok[i]=new KeyValuePair<double, double>(d.Z[i], d.X[i]);
-            ((LineSeries)chart.Series[0]).ItemsSource = ok;
-            
+            var ok = new KeyValuePair<double, double>[x.Length];
+            for (int i = 0; i < x.Length; i++)
+                ok[i] = new KeyValuePair<double, double>(x[i], y[i]);
+            ((LineSeries)chart.Series[ii]).ItemsSource = ok;
+           
 
         }
 
         
+        private static Style GetNewDataPointStyle()
+        {
+
+            Style style = new Style(typeof(DataPoint));
+
+
+            Setter st2 = new Setter(DataPoint.BorderBrushProperty,
+                                        new SolidColorBrush(Colors.White));
+            Setter st3 = new Setter(DataPoint.BorderThicknessProperty, new Thickness(0.1));
+
+            Setter st4 = new Setter(DataPoint.TemplateProperty, null);
+
+            style.Setters.Add(st2);
+            style.Setters.Add(st3);
+            style.Setters.Add(st4);
+            return style;
+        }
+
+
+
     }
 }

@@ -22,6 +22,10 @@ namespace vkr
             public double[] Yp2;
             public double[] Zp2;
 
+             public double[] XX;
+             public double[] YY;
+             public double[] ZZ;
+
         public double[] Xp;
         public double[] Yp;
         public double[] Zp;
