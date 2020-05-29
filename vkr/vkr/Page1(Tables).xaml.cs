@@ -52,10 +52,17 @@ namespace vkr
                 {
                     try
                     {
-                        cn.Open();
+                        try
+                        {
+                            cn.Open();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
                   
 
-                    OleDbDataAdapter objDA1 = new System.Data.OleDb.OleDbDataAdapter("select * from [Лист1$]", cn);
+                    OleDbDataAdapter objDA1 = new OleDbDataAdapter("select * from [Лист1$]", cn);
                     DataSet excelDataSet1 = new DataSet();
                     objDA1.Fill(excelDataSet1);
                     //dtGrid.DataSet= excelDataSet.Tables[0];
@@ -148,7 +155,7 @@ namespace vkr
                     }
                     catch
                     {
-                        MessageBox.Show("Введен путь не к таблице");
+                        MessageBox.Show("Данные не загружены");
                     }
                 }
 
