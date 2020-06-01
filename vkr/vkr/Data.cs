@@ -30,6 +30,7 @@ namespace vkr
         public double[] Yp;
         public double[] Zp;
         public double[] AMM;
+        public double[] Ksmini;
 
         public double AA;
             public double BB;

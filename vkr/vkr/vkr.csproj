@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="unincluded.cs" />
     <Page Include="Page1%28Tables%29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
