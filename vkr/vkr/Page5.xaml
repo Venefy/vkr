@@ -12,7 +12,7 @@
 
 
     <Grid HorizontalAlignment="Stretch">
-        
+
         <ScrollViewer >
 
             <StackPanel HorizontalAlignment="Center">
@@ -168,6 +168,7 @@
                         <TextBox Margin="0,10,0,0" Text="{Binding ElementName=slValue, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
                     </StackPanel>
 
+
                     <DVC:Chart Name="line3" Width="400" Height="200" Background="LightGray" Margin="10,10,10,10">
                         <DVC:Chart.Template>
                             <ControlTemplate TargetType="{x:Type DVC:Chart}">
@@ -215,45 +216,50 @@
 
 
 
+                    <StackPanel>
+                        <DVC:Chart Name="Chart5" Width="200" Height="150" Background="LightGray">
+                            <DVC:Chart.Template>
+                                <ControlTemplate TargetType="{x:Type DVC:Chart}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                            <Grid>
 
-                    <DVC:Chart Name="Chart5" Width="200" Height="150" Background="LightGray">
-                        <DVC:Chart.Template>
-                            <ControlTemplate TargetType="{x:Type DVC:Chart}">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="10*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-                                        <Grid>
-
-                                            <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="5,5,5,5">
-                                                <Grid Panel.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
-                                                <Border Panel.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
-                                            </chartingprimitives:EdgePanel>
-                                        </Grid>
-                                    </Border>
-                                </Grid>
+                                                <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="5,5,5,5">
+                                                    <Grid Panel.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                                    <Border Panel.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                                </chartingprimitives:EdgePanel>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
 
 
-                            </ControlTemplate>
+                                </ControlTemplate>
 
-                        </DVC:Chart.Template>
+                            </DVC:Chart.Template>
 
-                        <DVC:Chart.Series>
-                            <DVC:ColumnSeries Title="Кол-во" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"  >
-                                <DVC:ColumnSeries.LegendItemStyle>
-                                    <Style TargetType="DVC:LegendItem">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </Style>
+                            <DVC:Chart.Series>
+                                <DVC:ColumnSeries Title="Кол-во" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"  >
+                                    <DVC:ColumnSeries.LegendItemStyle>
+                                        <Style TargetType="DVC:LegendItem">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </Style>
 
-                                </DVC:ColumnSeries.LegendItemStyle>
+                                    </DVC:ColumnSeries.LegendItemStyle>
 
-                            </DVC:ColumnSeries>
+                                </DVC:ColumnSeries>
 
-                        </DVC:Chart.Series>
-                    </DVC:Chart>
+                            </DVC:Chart.Series>
+                        </DVC:Chart>
+                        <Button Content="Продолжить" Margin="5,25,5,5" Click="Button_Click" Height="80" Width="160" />
+                    </StackPanel>
                 </WrapPanel>
+
+
+
 
             </StackPanel>
 

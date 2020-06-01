@@ -116,6 +116,9 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="Page6.xaml.cs">
+      <DependentUpon>Page6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="unincluded.cs" />
     <Page Include="Page1%28Tables%29.xaml">
       <SubType>Designer</SubType>
@@ -134,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page6.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

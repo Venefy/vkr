@@ -10,7 +10,7 @@ namespace vkr
     {
 
 
-                    //CalcMNK2();
+            //CalcMNK2();
             //CalcMNK3();
             //CalcMNK4();
             //CalcMNK5();

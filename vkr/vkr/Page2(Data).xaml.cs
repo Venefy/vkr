@@ -37,7 +37,10 @@ namespace vkr
             d.MY4 = double.Parse(MY4.Text, CultureInfo.InvariantCulture);
             d.Sp1 = double.Parse(Sp1.Text, CultureInfo.InvariantCulture);
             d.Lp1 = double.Parse(Lp1.Text, CultureInfo.InvariantCulture);
-           
+            d.Xaa = double.Parse(Xaa.Text, CultureInfo.InvariantCulture);
+            d.Yaa = double.Parse(Yaa.Text, CultureInfo.InvariantCulture);
+            d.Xbb = double.Parse(Xbb.Text, CultureInfo.InvariantCulture);
+            d.Ybb = double.Parse(Ybb.Text, CultureInfo.InvariantCulture);
 
         }
         

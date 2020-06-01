@@ -29,8 +29,17 @@ namespace vkr
         public double[] Xp;
         public double[] Yp;
         public double[] Zp;
-        public double[] AMM;
+        
         public double[] Ksmini;
+
+        public double[] Ap;
+        public double[] Ap1;
+        public double[] Ap2;
+        public double[] AM;
+        public double[] AMM;
+
+        public double[] ha;
+        public double[] hb;
 
         public double AA;
             public double BB;
@@ -47,6 +56,10 @@ namespace vkr
             public double MY4;
             public double Sp1;
             public double Lp1;
+        public double Xaa;
+        public double Yaa;
+        public double Xbb;
+        public double Ybb;
 
 
     }
