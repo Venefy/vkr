@@ -29,8 +29,9 @@ namespace vkr
         public double[] Xp;
         public double[] Yp;
         public double[] Zp;
+        public double[] AMM;
 
-            public double AA;
+        public double AA;
             public double BB;
             public double MY1;
             public double MY2;

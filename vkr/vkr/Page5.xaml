@@ -281,6 +281,9 @@
                         </DVC:Chart.Series>
                     </DVC:Chart>
                 </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Name="MNK1" TextWrapping="Wrap" Text=""/>
+                </WrapPanel>
             </StackPanel>
           
 
